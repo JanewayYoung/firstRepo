@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+</head>
+<body>
+	<h2>angularJS依赖注入课程</h2>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<button ng-click="sayHello()">点我</button>	
+	</div>
+	<script src="js/angular.min.js"></script>
+	<script>
+	var app = angular.module("myApp",[]);
+
+	app.factory("greeting",function(){
+		return function(name){
+			alert("Hello " + name)
+		}
+	})
+	//推断式注入声明
+	//app.controller("myCtrl",["$scope","greeting",ctrl1])
+	//function ctrl1($scope,greeting){
+	//	$scope.sayHello = function(){
+	//		greeting("John Snow")
+	//	}
+	//}
+	//显示注入声明
+	function ctrl1($scope2,greeting2){
+		$scope2.sayHello = function(){
+			greeting2("Tom Smith")
+		} 
+	}
+	ctrl1.$inject = ['$scope','greeting']
+	app.controller("myCtrl",ctrl1)
+	</script>
+</body>
+
+</html>
+
