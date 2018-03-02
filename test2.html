@@ -12,7 +12,7 @@
 	<script src="js/angular.min.js"></script>
 	<script>
 	var app = angular.module("myApp",[]);
-
+:
 	app.factory("greeting",function(){
 		return function(name){
 			alert("Hello " + name)
@@ -26,6 +26,7 @@
 	//	}
 	//}
 	//显示注入声明
+	<!--好吧，在做一次修改后提交的git库的步骤-->
 	function ctrl1($scope2,greeting2){
 		$scope2.sayHello = function(){
 			greeting2("Tom Smith")
